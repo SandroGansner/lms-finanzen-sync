@@ -1,0 +1,19 @@
+# Ignoriere Python-Cache-Dateien
+__pycache__/
+*.pyc
+
+# Ignoriere Umgebungsvariablen-Datei
+.env
+
+# Ignoriere virtuelle Umgebung
+venv/
+
+# Ignoriere temporäre Dateien und exportierte Dateien
+exports/
+*.jpg
+*.png
+*.pdf
+
+# Ignoriere Google Drive Token-Dateien
+*.pickle
+credentials.json

@@ -1,0 +1,4 @@
+requests python-dotenv pandas openpyxl schedule google-auth google-auth-oauthlib google-api-python-client
+Pillow
+reportlab
+img2pdf
