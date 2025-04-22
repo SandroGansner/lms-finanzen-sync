@@ -36,22 +36,13 @@ jobs:
         mkdir -p exports
 
     - name: Run sync_purchases.py
-      run: |
-        echo "Starting sync_purchases.py..."
-        python sync_purchases.py || { echo "sync_purchases.py failed"; exit 1; }
+      run: python sync_purchases.py
       continue-on-error: false # Beendet den Workflow, wenn das Skript fehlschlägt
 
     - name: Run sync_expenses.py
-      run: |
-        echo "Starting sync_expenses.py..."
-        python sync_expenses.py || { echo "sync_expenses.py failed"; exit 1; }
+      run: python sync_expenses.py
       continue-on-error: false # Beendet den Workflow, wenn das Skript fehlschlägt
 
     - name: Run sync_campaigns.py
-      run: |
-        echo "Starting sync_campaigns.py..."
-        python sync_campaigns.py || { echo "sync_campaigns.py failed"; exit 1; }
+      run: python sync_campaigns.py
       continue-on-error: false # Beendet den Workflow, wenn das Skript fehlschlägt
-
-
-      Remove push trigger from sync.yml
