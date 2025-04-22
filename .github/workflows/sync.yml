@@ -29,20 +29,30 @@ jobs:
         echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
         echo "API_KEY=${{ secrets.API_KEY }}" >> .env
         echo "${{ secrets.GOOGLE_CREDENTIALS }}" > credentials.json
+        echo "Verifying environment variables..."
+        cat .env
+        ls -la credentials.json
       continue-on-error: false # Beendet den Workflow, wenn die Umgebungsvariablen nicht gesetzt werden können
 
     - name: Create exports directory
       run: |
         mkdir -p exports
+        ls -la exports
 
     - name: Run sync_purchases.py
-      run: python sync_purchases.py
+      run: |
+        echo "Starting sync_purchases.py..."
+        python sync_purchases.py
       continue-on-error: false # Beendet den Workflow, wenn das Skript fehlschlägt
 
     - name: Run sync_expenses.py
-      run: python sync_expenses.py
+      run: |
+        echo "Starting sync_expenses.py..."
+        python sync_expenses.py
       continue-on-error: false # Beendet den Workflow, wenn das Skript fehlschlägt
 
     - name: Run sync_campaigns.py
-      run: python sync_campaigns.py
+      run: |
+        echo "Starting sync_campaigns.py..."
+        python sync_campaigns.py
       continue-on-error: false # Beendet den Workflow, wenn das Skript fehlschlägt
